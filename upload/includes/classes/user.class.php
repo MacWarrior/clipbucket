@@ -3561,6 +3561,11 @@ class userquery extends CBCategory{
 			$array = array_merge($array,$_FILES);
         }
 		$this->validate_form_fields($array);
+		
+		//checking spambot
+		if($array['spambot']!='clipbucket' && !has_access('admin_access',true))
+			e(lang('usr_spambot_err'));
+		
 		//checking terms and policy agreement
 		if($array['agree']!='yes' && !has_access('admin_access',true)){
 			e(lang('usr_ament_err'));
