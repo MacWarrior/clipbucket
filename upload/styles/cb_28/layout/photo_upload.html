@@ -449,9 +449,12 @@ uploader.bind("BeforeUpload", function(){
 					        		scrollTop: $("body").offset().top},
 					        		'medium');
 					        							   			
-					   			setTimeout(function(){
-					   				$("#uploadMessage").addClass("hidden");
-					   			}, 5000);
+					   			// After click save details button it redirects to manage_photos.php
+					        
+					        	setTimeout(function(){
+									$("#uploadMessage").addClass("hidden");
+									window.location = "/manage_photos.php";
+								}, 3000);
 					   		}).fail(function(err){
 					   			console.log(err);
 					   		});
@@ -506,14 +509,14 @@ uploader.bind("BeforeUpload", function(){
 									$(".h4").show();
 									$(".instructions").show();
 									$("#SelectionDIV").show();
-									setTimeout(function(){
-										$("#uploadMessage").addClass("hidden");
-									}, 5000);
+									$("#uploadMessage").addClass("hidden");
+									window.location = "/photo_upload.php";
+								}, 1000);
 								}else{
 									$("#uploadMessage").html(msg.err).attr("class", "alert alert-danger").removeClass("hidden");
 									setTimeout(function(){
 										$("#uploadMessage").addClass("hidden");
-									}, 5000);
+									}, 3000);
 								}
 							});
 						}
